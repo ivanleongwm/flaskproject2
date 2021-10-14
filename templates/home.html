@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microblog</title>
+  <link rel="stylesheet" href="../static/css/styles.css" />
+  <script type="text/javascript">
+    //function test_func(data) {
+    //    console.log(data);
+    //}
+    // test_func({{ dictionary2.Red|string }})
+    //var objectDict = JSON.parse({{dictionary2}})
+    //function test(){
+    //    if (document.getElementById("list").value == "Red") {
+    //        document.getElementById("demo").innerHTML = "hello";
+    //    }
+    //}
+
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar__brand">
+      <img class="navbar__logo" src="../static/logo.svg" alt="The Microblog logo" />Microblog
+    </div>
+    <ul class="navbar__navigation">
+      <li class="navbar__navigation-item">
+        <a href="#" class="navbar__link">Recent</a>
+      </li>
+      <li class="navbar__navigation-item">
+        <a href="#" class="navbar__link">Calendar</a>
+      </li>
+    </ul>
+  </header>
+  <main class="main">
+    <section>
+<!--
+      <select id="list" name="colour" method="GET" action="/">
+          {% for colour in colours %}
+          <option value="{{colour}}" SELECTED>{{colour}}</option>
+          {% endfor %}
+      </select>
+-->
+      <select id="arr" onchange="headerVal()"></select><br>
+      <select id="arr1" onchange="contentVal()"></select>
+      <p id="arr2">Please select an option above</p>
+      <h1>Add new entry</h1>
+      <form class="form" method="POST">
+        <p class="form__input">
+          <label for="entry" class="form__label">Entry contents:</label>
+          <textarea name="content" id="entry" class="form__textarea"></textarea>
+        </p>
+        <button type="submit" class="form__submit">Add entry</button>
+      </form>
+    </section>
+    <section>
+      <h1>Recent posts</h1>
+      {% for entry in entries %}
+        <article class="entry">
+          <div>
+            <h2 class="entry__title">{{ entry[0] | truncate(30, true) }}</h2>
+            <time class="entry__date" datetime="{{ entry[1] }}">• {{ entry[2] }}</time>
+          </div>
+          <p class="entry__content">
+            {{ entry[0] }}
+          </p>
+        </article>
+      {% endfor %}
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer__content">
+      <section class="left">
+        <a class="footer__item">Made by Jose Salvatierra</a>
+        <a class="footer__item">Check out my other projects</a>
+      </section>
+      <section class="right">
+        <div class="footer__column">
+          <a class="footer__item">Recent</a>
+          <a class="footer__item">Calendar</a>
+        </div>
+        <div class="footer__column">
+          <a class="footer__item" href="#">About</a>
+          <a class="footer__item">How this was made</a>
+        </div>
+      </section>
+    </div>
+  </footer>
+<script>
+  var select = document.getElementById("arr");
+  var header = document.getElementById("arr1")
+  var elmts = Object.keys({{dictionary|safe}})
+  //{{colours|safe}}
+  //["HTML", "CSS", "JS", "PHP", "jQuery"];
+  var dictionary1 = {{dictionary|safe}}
+  console.log({{dictionary|safe}})
+  // Main function
+  function GFG_Fun() {
+      for (var i = 0; i < elmts.length; i++) {
+          var optn = elmts[i];
+          var el = document.createElement("option");
+          el.textContent = optn;
+          el.value = optn;
+          select.appendChild(el);
+      }
+  }
+  GFG_Fun()
+  function dictVal() {
+    var keyVal = document.getElementById("arr").value;
+    console.log(keyVal);
+    var paragraph = document.getElementById("demo");
+    paragraph.innerHTML = dictionary1[keyVal];
+    console.log(dictionary1[keyVal]);
+  }
+  function headerVal() {
+    var personVal = document.getElementById("arr").value;
+    console.log(personVal)
+    header.innerHTML = '';
+    for (var i = 0; i < dictionary1[personVal].length; i++) {
+          var optn = dictionary1[personVal][i][0];
+          var el = document.createElement("option");
+          el.textContent = optn;
+          el.value = optn;
+          header.appendChild(el);
+    }
+    var contentVal = document.getElementById("arr2");
+    contentVal();
+  }
+
+  function contentVal() {
+    var personVal = document.getElementById("arr").value;
+    var headerVal = document.getElementById("arr1").value;
+    var contentVal = document.getElementById("arr2");
+    contentVal.innerHTML =''
+    for (var i = 0; i < dictionary1[personVal].length; i++) {
+          if (dictionary1[personVal][i][0] === headerVal) {
+              contentVal.innerHTML = dictionary1[personVal][i][1];
+       }
+    }
+  }
+  headerVal()
+  contentVal()
+</script>
+</body>
+</html>
