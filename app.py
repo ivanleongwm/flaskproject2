@@ -12,15 +12,16 @@ entries = []
 def home():
     #print([e for e in app.db.entries.find({})])
     if request.method == "POST":
+        entry_content0 = request.form.get("content0")
         entry_content = request.form.get("content")
         formatted_date = datetime.datetime.today().strftime("%Y-%m-%d")
-        entries.append((entry_content,formatted_date))
+        entries.append((entry_content0,entry_content,formatted_date))
 
     entries_with_date = [
         (
             entry[0],
             entry[1],
-            datetime.datetime.strptime(entry[1],"%Y-%m-%d").strftime("%b %d")
+            datetime.datetime.strptime(entry[2],"%Y-%m-%d").strftime("%b %d")
         )
         for entry in entries
     ]

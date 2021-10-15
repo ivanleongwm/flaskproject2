@@ -5,25 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Microblog</title>
   <link rel="stylesheet" href="../static/css/styles.css" />
-  <script type="text/javascript">
-    //function test_func(data) {
-    //    console.log(data);
-    //}
-    // test_func({{ dictionary2.Red|string }})
-    //var objectDict = JSON.parse({{dictionary2}})
-    //function test(){
-    //    if (document.getElementById("list").value == "Red") {
-    //        document.getElementById("demo").innerHTML = "hello";
-    //    }
-    //}
-
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&family=Playfair+Display+SC&family=Raleway:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="navbar">
-    <div class="navbar__brand">
-      <img class="navbar__logo" src="../static/logo.svg" alt="The Microblog logo" />Microblog
+    <div id="outerheaderdiv">
+      <div class="navbar__brand">
+        <!--<img class="navbar__logo" src="../static/logo.svg" alt="The Microblog logo" />-->
+        The Curious Kitten
+      </div>
+      <div class="clear"></div>
+      <div class="subtitle">
+        SG FBA Feedback Blog
+      </div>
     </div>
+    <!--
     <ul class="navbar__navigation">
       <li class="navbar__navigation-item">
         <a href="#" class="navbar__link">Recent</a>
@@ -32,9 +30,12 @@
         <a href="#" class="navbar__link">Calendar</a>
       </li>
     </ul>
+    -->
+
   </header>
   <main class="main">
-    <section>
+    <!--<hr>-->
+    <section class="user_selection">
 <!--
       <select id="list" name="colour" method="GET" action="/">
           {% for colour in colours %}
@@ -42,14 +43,26 @@
           {% endfor %}
       </select>
 -->
+      <hr>
       <select id="arr" onchange="headerVal()"></select><br>
       <select id="arr1" onchange="contentVal()"></select>
-      <p id="arr2">Please select an option above</p>
-      <h1>Add new entry</h1>
+      <p id="arr2">Please select a name and task above to leave a review on. Thank you (:</p>
+    </section>
+    <section class="user_review">
+      <hr id="your_review_header_line">
+      <h1 id="your_review_header">Your Review</h1>
       <form class="form" method="POST">
+        <p class="form__input0">
+          <textarea name="content0" id="entry" class="form__textarea0">SPPSG Recon</textarea>
+        </p>
+        <p id="subtitle_satisfied_with">Something you are satisfied with / how it helps</p>
         <p class="form__input">
-          <label for="entry" class="form__label">Entry contents:</label>
+          <!--<label for="entry" class="form__label">Entry contents:</label>-->
           <textarea name="content" id="entry" class="form__textarea"></textarea>
+        </p>
+        <p id="subtitle_satisfied_with">Area of improvement if any (or else NA)</p>
+        <p class="form__input">
+          <textarea name="content1" id="entry" class="form__textarea1"></textarea>
         </p>
         <button type="submit" class="form__submit">Add entry</button>
       </form>
@@ -60,10 +73,10 @@
         <article class="entry">
           <div>
             <h2 class="entry__title">{{ entry[0] | truncate(30, true) }}</h2>
-            <time class="entry__date" datetime="{{ entry[1] }}">• {{ entry[2] }}</time>
+            <time class="entry__date" datetime="{{ entry[2] }}">• {{ entry[2] }}</time>
           </div>
           <p class="entry__content">
-            {{ entry[0] }}
+            {{ entry[1] }}
           </p>
         </article>
       {% endfor %}

@@ -10,22 +10,45 @@ html {
 
 body {
   box-sizing: border-box;
-  margin: 0;
 }
 
 .navbar {
-  max-width: 640px;
-  margin: 50px auto;
-  padding: 0 20px;
+  /*max-width: 640px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between;*/
+  max-width: 100%;
+  margin: auto;
+  padding: 30px 20px;
+  background-color:rgb(237, 234, 229);
   font-size: 24px;
+  text-align: center;
 }
 
 .navbar__brand {
+  max-width:640px;
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  font-family: 'Playfair Display SC', serif;
+  margin: auto;
+  font-size: 55px;
+}
+.user_selection {
+  background-color:rgb(237, 234, 229);
+  padding: 20px;
+}
+
+
+
+.clear { clear:both; }
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  /*position: absolute;
   display: flex;
   align-items: center;
+  */
 }
 
 .navbar__logo {
@@ -50,9 +73,10 @@ body {
 }
 
 .main {
-  max-width: 450px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 0px;
+  text-align: center;
 }
 
 .form {
@@ -61,26 +85,76 @@ body {
   align-items: flex-end;
 }
 
+hr {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0.5px;
+    max-width:550px;
+    border-color:rgb(159, 237, 215);
+    background-color:rgb(237, 234, 229);
+}
+/*
+*/
 .form__input {
   width: 100%;
 }
 
+.form__input0 {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
 .form__label {
   display: block;
   margin-bottom: 10px;
 }
 
+.form__textarea0 {
+  width: inherit;
+  height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 5px;
+  border: none;
+  background-color: #f3f6f6;
+  margin-bottom: 0px;
+}
+
 .form__textarea {
   width: inherit;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  height: 200px;
   font-size: 18px;
-  padding: 12px 20px;
+  padding: 12px 5px;
+  border: none;
+  background-color: #f3f6f6;
+  margin-bottom: 0px;
+}
+
+.form__textarea1 {
+  width: inherit;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  height: 100px;
+  font-size: 18px;
+  padding: 12px 5px;
   border: none;
   background-color: #f3f6f6;
   margin-bottom: 10px;
 }
 
 .form__submit {
-  background-color: #3cd0ff;
+  background-color: rgb(2, 102, 112);
+  font-family: 'Playfair Display SC', serif;
   border: none;
   font-size: 18px;
   font-weight: bold;
@@ -91,7 +165,7 @@ body {
 }
 
 .form__submit:hover {
-  background-color: #18c1e1;
+  background-color: rgb(159, 237, 215);
 }
 
 .entry {
@@ -155,4 +229,67 @@ body {
 
 .footer__item:hover {
   text-decoration: underline;
+}
+
+select{
+   background:transparent;
+   font-family: 'Montserrat', sans-serif;
+   width: 300px;
+   padding: 8px;
+   font-size:14px;
+   font-weight:300;
+   color:black;
+   line-height: 15px;
+   border-color:rgb(159, 237, 215);
+   border: 1;
+   border-radius: 0;
+  -webkit-appearance: none;
+   margin-bottom: 10px;
+
+}
+
+select > option {
+  background: rgb(159, 237, 215);
+}
+
+#arr2 {
+   font-family: 'Montserrat', sans-serif;
+}
+
+.user_review {
+  width: 640px;
+  display: inline-block;
+  position: relative;
+  align-items: center;
+}
+
+#your_review_header {
+  font-family: 'Playfair Display SC', serif;
+  border:1px solid black;
+  padding:5px 50px 5px 50px;
+  margin-top:30px;
+  display: inline-block;
+  position: relative;
+  align-items: center;
+}
+
+#your_review_header_line {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    max-width:50px;
+    border-color:black;
+}
+
+#subtitle_satisfied_with {
+  font-family: 'Playfair Display SC', serif;
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  margin: 10px 0px 0px 0px;
+  padding: 0px 0px 0px 5px;
 }
